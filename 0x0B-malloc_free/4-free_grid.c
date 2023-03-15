@@ -1,20 +1,27 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "main.h"
+
+int **alloc_grid(int, int);
+void free_grid(int **, int);
+
 /**
- * free_grid - frees 2d array
- * @grid: 2d grid
- * @height: height dimension of grid
- * Description: frees memory of grid
- * Return: nothing
+ * main - check the code .
  *
+ * Return: Always 0.
  */
-void free_grid(int **grid, int height)
+int main(void)
 {
-	int i;
-	for (i = 0; i < height; i++)
+	int **grid;
+	int h;
+	int w;
+
+	h = 10;
+	w = 20;
+	grid = alloc_grid(w, h);
+	if (grid == NULL)
 	{
-		free(grid[i]);
+		return (1);
 	}
-	free(grid);
+	free_grid(grid, h);
+	return (0);
 }
